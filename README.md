@@ -8,7 +8,7 @@ This instructions have been prepared for GEOG 176A - Summer B - 2021. Most of th
 
 ### Windows and MacOS
 
-Please find the instructions [here](https://postgis.net/workshops/postgis-intro/installation.html). Make sure to download the latest version of the software: **PostgreSQL 13**.  Please follow instructions to the letter. In all of the pop-up windows click Yes / Okay! 
+Please find the instructions [here](https://postgis.net/workshops/postgis-intro/installation.html). Make sure to download the latest version of the software: **PostgreSQL 13**.  Please follow instructions to the letter. In all of the pop-up windows use the default options and click Yes / Okay! 
 
 
 
