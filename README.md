@@ -71,5 +71,30 @@ We will be using DBeaver to practice the queries as it has some useful functiona
 
 1. Open DBeaver. From menu: Database > New Database Connection. Select 'PostgreSQL' and click 'Next'. Use the same credentials as you used in Part II: Exploring the geodatabase with QGIS. Before hitting 'Finish' make sure to click on 'Test Connection' to check if you input the credentials correctly. Click 'Finish', when done. 
 2. Please download the demo.sql file from [My Github repository](https://raw.githubusercontent.com/barguzin/geog176a-ucsb-summerB/main/demo.sql). 
-3. We will be running queries in class together, with explanations. 
+3. We will be running queries in class together, with explanations. The purpose of this exercise is to calculate the number and types of crimes in the vicinity to subway stations in Queens. 
 
+
+
+# IV. Terminology and concepts 
+
+## 1. Buffers 
+
+>  **ST_Buffer(geometry,distance)** takes in a buffer distance and geometry type and outputs a polygon with a boundary the buffer distance away from the input geometry.
+
+![](http://postgis.net/workshops/postgis-intro/_images/st_buffer.png)
+
+![](http://postgis.net/workshops/postgis-intro/_images/liberty_positive.jpg)
+
+## 2. Centroid 
+
+Computes a point which is the geometric center of mass of a geometry. Returns geometry. Syntax: ST_Centroid(geometry g1);
+
+![](https://i.imgur.com/z8U4FPy.png)
+
+
+
+## 3. Union 
+
+Unions the input geometries, merging geometry to produce a result geometry with no overlaps. Returns geometry. Syntax: ST_Union(geometry[] g1_array);
+
+![](http://postgis.net/workshops/postgis-intro/_images/union.jpg)
