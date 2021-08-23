@@ -1,26 +1,53 @@
 -- check SRID (projection) 
 select st_srid(geom) from nyc_neighborhoods nn limit 1;
+
+select st_srid(geom) from nyc_neighborhoods nn; 
 -- this returns https://epsg.io/26918
 -- not supported for on-the-fly rendering 
 
+select 
+	gid, blkid, popn_black, st_transform(geom, 4326)
+from nyc_census_blocks ncb;
+
+select 
+	gid, blkid, popn_black, st_transform(geom, 4326) as geom_transformed
+from nyc_census_blocks ncb ; 
+
+select * from nyc_census_blocks ncb ;
+
+
 -- demo of the Spatial View in DBeaver
-select name, st_transform(geom, 3857)  from nyc_subway_stations nss ;
+select *, st_transform(geom, 3857)  from nyc_subway_stations nss ;
+
+SELECT 
+	gid, objectid, id, "name", alt_name, cross_st, long_name, "label", borough, nghbhd, routes, transfers, color, express, closed, st_transform(geom, 3857) as geom 
+FROM public.nyc_subway_stations;
+
 
 -- simple SQL example 
-SELECT name
-  FROM nyc_neighborhoods
-  WHERE boroname = 'Brooklyn';
+SELECT 
+	*
+FROM nyc_neighborhoods
+WHERE boroname = 'Brooklyn';
+
+-- 
+select distinct boroname 
+from nyc_neighborhoods nn ;
  
 -- another filtering funcs 
  select * 
  from nyc_neighborhoods nn 
- where boroname ilike 'bro%';
+ where boroname like '%Bro%';
 
 -- use wildcard string search 
 -- ilike (case insensitive search)
 select * 
  from nyc_neighborhoods nn 
  where boroname ilike '%kly%';
+
+select name, st_transform(geom, 4326) 
+from nyc_neighborhoods nn 
+where name='Great Kills';
 
 -- count the number of characters in name variable 
 SELECT char_length(name)
